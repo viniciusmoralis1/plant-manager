@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 import Constants from 'expo-constants';
 import colors from '../../styles/colors';
 
@@ -6,8 +6,8 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingTop: Constants.statusBarHeight + 20
+    justifyContent: 'space-around',
+    paddingTop: Constants.statusBarHeight
   },
 
   title: {
@@ -26,7 +26,21 @@ export default StyleSheet.create({
   },
 
   wateringImage: {
-    width: 292,
-    height: 284
+    height: Dimensions.get('window').width * 0.7
   },
+
+  button: {
+    backgroundColor: colors.green,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 16,
+    marginBottom: 12,
+    height: 56,
+    width: 66,
+  },
+
+  iconRight: {
+    fontSize: 32,
+    color: colors.white
+  }
 });
