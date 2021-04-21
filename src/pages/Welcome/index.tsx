@@ -1,5 +1,6 @@
 import React from 'react';
-import {SafeAreaView, Text, Image, TouchableOpacity} from 'react-native';
+import {SafeAreaView, Text, Image} from 'react-native';
+import { Button } from '../../components/Button';
 
 import styles from './styles';
 import wateringImage from '../../assets/watering.png';
@@ -20,9 +21,7 @@ export function Welcome(){
         Nós cuidamos de lembrar você sempre que precisar.
       </Text>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Teste</Text>
-      </TouchableOpacity>
+      <Button text="Teste"/>
     </SafeAreaView>
   );
 };
