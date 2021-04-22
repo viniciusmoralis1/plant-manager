@@ -1,15 +1,16 @@
 import React from 'react';
-import {TouchableOpacity, Text} from 'react-native';
+import {TouchableOpacity, Text, TouchableOpacityProps} from 'react-native';
 
 import styles from './styles';
 
-interface ButtonProps {
-  text: string
+interface ButtonProps extends TouchableOpacityProps {
+  text: string;
+  showDisabled: boolean;
 }
 
-export function Button({text} : ButtonProps) {
+export function Button({text, showDisabled, ...rest} : ButtonProps) {
   return (
-    <TouchableOpacity style={styles.button} activeOpacity={0.7}>
+    <TouchableOpacity style={[styles.button, showDisabled && (styles.disable)]} activeOpacity={0.7} {...rest}>
       <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   )

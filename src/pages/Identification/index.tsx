@@ -4,14 +4,22 @@ import {
   View,
   Text,
   TextInput,
-  Platform
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import {Button} from '../../components/Button';
 import styles from './styles';
 
 export function Identification(){
   const [showFocus, setShowFocus] = useState(false);
   const [name, setName] = useState<string>();
+  const navigation = useNavigation();
+
+  function handleSubmit(){
+    navigation.navigate('Confirmation');
+  }
 
   function handleBlur(){
     if(!!name)
@@ -26,29 +34,31 @@ export function Identification(){
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <View style={styles.content}>
-        <View style={styles.form}>
-          <Text style={styles.emoji}>{ !!name ? '😃' : '😉'}</Text>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.content}>
+          <View style={styles.form}>
+            <Text style={styles.emoji}>{ !!name ? '😃' : '😊'}</Text>
 
-          <Text style={styles.title}>
-            Como podemos {'\n'}
-            chamar você?
-          </Text>
+            <Text style={styles.title}>
+              Como podemos {'\n'}
+              chamar você?
+            </Text>
 
-          <TextInput
-            style={[styles.nameInput, showFocus && (styles.inputFocus)]}
-            onBlur={handleBlur}
-            onFocus={handleFocus}
-            placeholder="Digite um nome"
-            onChangeText={setName}
-            autoCorrect={false}
-          />
-          
-          <View style={styles.footer}>
-            <Button text="Confirmar" />
+            <TextInput
+              style={[styles.nameInput, showFocus && (styles.inputFocus)]}
+              onBlur={handleBlur}
+              onFocus={handleFocus}
+              placeholder="Digite um nome"
+              onChangeText={setName}
+              autoCorrect={false}
+            />
+            
+            <View style={styles.footer}>
+              <Button text="Confirmar" onPress={handleSubmit} disabled={!name} showDisabled={!name} />
+            </View>
           </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 };

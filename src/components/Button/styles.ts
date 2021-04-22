@@ -15,5 +15,9 @@ export default StyleSheet.create({
     fontSize: 16,
     color: colors.white,
     fontFamily: fonts.heading
+  },
+
+  disable: {
+    backgroundColor: colors.green_light
   }
 });
