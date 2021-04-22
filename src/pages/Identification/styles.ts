@@ -16,7 +16,7 @@ export default StyleSheet.create({
     flex: 1,
     width: '100%'
   },
-  
+
   form: {
     flex: 1,
     alignItems: 'center',
@@ -41,11 +41,15 @@ export default StyleSheet.create({
     fontSize: 18,
     borderColor: colors.gray,
     color: colors.heading,
-    borderBottomWidth: 1,
+    borderBottomWidth: 1.5,
     width: '100%',
     marginTop: 48,
-    padding: 10,
-    textAlign: 'center'
+    padding: 4,
+    textAlign: 'center',
+  },
+
+  inputFocus: {
+    borderColor: colors.green
   },
 
   footer: {
