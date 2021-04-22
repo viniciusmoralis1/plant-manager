@@ -6,8 +6,11 @@ import styles from './styles';
 export function PlantSelect(){
   return(
     <View style={styles.container}>
-      <Header />
-      <Text style={styles.title}>Teste</Text>
+      <View style={styles.header}>
+        <Header />
+        <Text style={styles.title}>Em qual ambiente</Text>
+        <Text style={styles.subtitle}>você quer colocar sua planta?</Text>
+      </View>
     </View>
   );
 };

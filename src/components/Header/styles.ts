@@ -10,7 +10,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: Constants.statusBarHeight,
-    paddingHorizontal: 16,
   },
 
   text: {

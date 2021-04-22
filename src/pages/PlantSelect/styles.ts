@@ -10,9 +10,22 @@ export default StyleSheet.create({
     marginTop: Constants.statusBarHeight
   },
 
+  header: {
+    paddingHorizontal: 24
+  },
+
   title: {
-    fontSize: 28,
+    marginTop: 20,
+    fontSize: 20,
     fontFamily: fonts.heading,
+
     color: colors.heading
+  },
+
+  subtitle: {
+    fontSize: 20,
+    fontFamily: fonts.text,
+    color: colors.heading,
+    lineHeight: 24
   },
 });
