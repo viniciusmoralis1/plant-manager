@@ -8,8 +8,8 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingTop: Constants.statusBarHeight,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    marginTop: Constants.statusBarHeight,
   },
 
   title: {

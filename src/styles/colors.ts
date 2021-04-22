@@ -7,7 +7,7 @@ export default {
   body_dark: '#738078',
   body_light: '#AAB2AD',
 
-  background: '#FFFFFF',
+  background: '#FAFAFA',
   shape: '#F0F0F0',
   white: '#FFFFFF',
   gray: '#CFCFCF',

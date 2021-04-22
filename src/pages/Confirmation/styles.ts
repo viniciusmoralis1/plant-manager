@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
-    paddingTop: Constants.statusBarHeight
+    marginTop: Constants.statusBarHeight
   },
 
   content: {

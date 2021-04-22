@@ -9,7 +9,7 @@ export default StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingTop: Constants.statusBarHeight
+    marginTop: Constants.statusBarHeight
   },
 
   content: {
