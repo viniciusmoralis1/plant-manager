@@ -1,6 +1,7 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import Constants from 'expo-constants';
 import colors from '../../styles/colors';
+import fonts from '../../styles/fonts';
 
 export default StyleSheet.create({
   container: {
@@ -12,17 +13,19 @@ export default StyleSheet.create({
 
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: colors.heading,
-    marginTop: 12
+    marginTop: 12,
+    fontFamily: fonts.heading,
+    lineHeight: 36
   },
 
   subtitle: {
     textAlign: 'center',
     fontSize: 18,
-    paddingHorizontal: 20,
-    color: colors.heading
+    paddingHorizontal: 22,
+    color: colors.heading,
+    fontFamily: fonts.text,
   },
 
   wateringImage: {
