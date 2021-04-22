@@ -8,16 +8,17 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingTop: Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight,
+    paddingHorizontal: 20
   },
 
   title: {
-    fontSize: 32,
+    fontSize: 28,
     textAlign: 'center',
     color: colors.heading,
     marginTop: 12,
     fontFamily: fonts.heading,
-    lineHeight: 36
+    lineHeight: 34
   },
 
   subtitle: {

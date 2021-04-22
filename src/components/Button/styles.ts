@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
+import fonts from '../../styles/fonts';
 
 export default StyleSheet.create({
   button: {
@@ -7,14 +8,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 16,
-    marginBottom: 12,
     height: 56,
-    width: 76,
-    paddingHorizontal: 10
   },
 
   buttonText: {
     fontSize: 16,
-    color: colors.white
+    color: colors.white,
+    fontFamily: fonts.heading
   }
 });

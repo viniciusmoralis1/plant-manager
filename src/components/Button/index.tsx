@@ -9,7 +9,7 @@ interface ButtonProps {
 
 export function Button({text} : ButtonProps) {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} activeOpacity={0.7}>
       <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   )
