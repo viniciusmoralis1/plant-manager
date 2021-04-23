@@ -29,10 +29,10 @@ export default StyleSheet.create({
   },
 
   environmentList: {
-    height: 60,
+    height: 54,
     alignItems: 'center',
     paddingLeft: 24,
-    marginVertical: 24,
+    marginVertical: 16,
   },
 
   plants: {
