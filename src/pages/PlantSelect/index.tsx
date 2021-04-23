@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import Header from '../../components/Header';
 import EnvironmentButton from '../../components/EnvironmentButton';
+import PlantCardPrimary from '../../components/PlantCardPrimary';
 import api from '../../services/api';
 import styles from './styles';
 
@@ -14,21 +15,37 @@ interface EnvironmentProps {
   title: string;
 }
 
+interface PlantProps {
+  id: number;
+  name: string;
+  about: string;
+  water_tips: string;
+  photo: string;
+  environments: [string];
+  frequency: {
+    times: number;
+    repeat_every: string;
+  }
+}
+
 export function PlantSelect(){
   const [environments, setEnvironments] = useState<EnvironmentProps[]>();
+  const [plants, setPlants] = useState<PlantProps[]>();
 
   useEffect(() => {
     async function fetchEnvironment() {
+      const {data} = await api.get('plants_environments');
+      setEnvironments([{key: 'all', title: 'Todos'}, ...data]);
+    };
 
-      await api.get('plants_environments').then((response) => {
-        console.log("vai chamar", response)
-      })
+    async function fetchPlants() {
+      const {data} = await api.get('plants');
+      setPlants(data);
+    };
 
-      // setEnvironments([{key: 'all', title: 'Todos'}, ...data]);
-    }
-
-    fetchEnvironment()
-  })
+    fetchEnvironment();
+    fetchPlants();
+  }, []);
 
   return(
     <View style={styles.container}>
@@ -45,8 +62,18 @@ export function PlantSelect(){
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.environmentList}
         />
-
       </View>
+
+      <View style={styles.plants}>
+        <FlatList data={plants} renderItem={({item}) => (
+          <PlantCardPrimary data={item} />
+        )}
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        />
+      </View>
+
+
     </View>
   );
 };

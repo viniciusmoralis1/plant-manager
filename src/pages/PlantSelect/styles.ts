@@ -34,4 +34,10 @@ export default StyleSheet.create({
     marginLeft: 24,
     marginVertical: 24,
   },
+
+  plants: {
+    flex: 1,
+    paddingHorizontal: 32,
+    justifyContent: 'center',
+  },
 });
