@@ -7,6 +7,8 @@ import {
 import Header from '../../components/Header';
 import EnvironmentButton from '../../components/EnvironmentButton';
 import PlantCardPrimary from '../../components/PlantCardPrimary';
+import Load from '../../components/Load';
+
 import api from '../../services/api';
 import styles from './styles';
 
@@ -33,6 +35,7 @@ export function PlantSelect(){
   const [selectedEnvironment, setSelectedEnvironment] = useState('all');
   const [plants, setPlants] = useState<PlantProps[]>([]);
   const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([]);
+  const [loading, setLoading] = useState(true);
 
   function handleSelectedEnvironment(environment: string){
     setSelectedEnvironment(environment);
@@ -57,12 +60,15 @@ export function PlantSelect(){
       const {data} = await api.get('plants?_sort=name');
       setPlants(data);
       setFilteredPlants(data);
+      setLoading(false);
     };
 
     fetchEnvironment();
     fetchPlants();
   }, []);
 
+  if (loading)
+    return <Load />
   return(
     <View style={styles.container}>
       <View style={styles.header}>
