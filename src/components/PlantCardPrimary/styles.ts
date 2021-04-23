@@ -7,15 +7,15 @@ export default StyleSheet.create({
     flex: 1,
     maxWidth: '45%',
     backgroundColor: colors.shape,
-    borderRadius: 24,
+    borderRadius: 25,
     paddingVertical: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 10,
+    margin: 8,
   },
 
   text: {
-    fontSize: 22,
+    fontSize: 17,
     fontFamily: fonts.heading,
     color: colors.green_dark,
     marginVertical: 12,

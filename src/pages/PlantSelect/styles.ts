@@ -31,7 +31,7 @@ export default StyleSheet.create({
   environmentList: {
     height: 60,
     alignItems: 'center',
-    marginLeft: 24,
+    paddingLeft: 24,
     marginVertical: 24,
   },
 

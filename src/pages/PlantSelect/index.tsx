@@ -30,17 +30,33 @@ interface PlantProps {
 
 export function PlantSelect(){
   const [environments, setEnvironments] = useState<EnvironmentProps[]>();
-  const [plants, setPlants] = useState<PlantProps[]>();
+  const [selectedEnvironment, setSelectedEnvironment] = useState('all');
+  const [plants, setPlants] = useState<PlantProps[]>([]);
+  const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([]);
+
+  function handleSelectedEnvironment(environment: string){
+    setSelectedEnvironment(environment);
+
+    if(environment == 'all')
+      return setFilteredPlants(plants);
+    else {
+      const filtered = plants?.filter(plant => 
+        plant.environments.includes(environment)
+      )
+      setFilteredPlants(filtered);
+    }
+  }
 
   useEffect(() => {
     async function fetchEnvironment() {
-      const {data} = await api.get('plants_environments');
+      const {data} = await api.get('plants_environments?_sort=title');
       setEnvironments([{key: 'all', title: 'Todos'}, ...data]);
     };
 
     async function fetchPlants() {
-      const {data} = await api.get('plants');
+      const {data} = await api.get('plants?_sort=name');
       setPlants(data);
+      setFilteredPlants(data);
     };
 
     fetchEnvironment();
@@ -56,8 +72,8 @@ export function PlantSelect(){
       </View>
       <View>
         <FlatList data={environments} renderItem={({item}) => (
-          <EnvironmentButton title={item.title} />
-        )} 
+          <EnvironmentButton title={item.title} active={item.key === selectedEnvironment} onPress={() => handleSelectedEnvironment(item.key)} />
+        )}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.environmentList}
@@ -65,7 +81,7 @@ export function PlantSelect(){
       </View>
 
       <View style={styles.plants}>
-        <FlatList data={plants} renderItem={({item}) => (
+        <FlatList data={filteredPlants} renderItem={({item}) => (
           <PlantCardPrimary data={item} />
         )}
         showsVerticalScrollIndicator={false}

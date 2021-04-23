@@ -4,13 +4,13 @@ import fonts from '../../styles/fonts';
 
 export default StyleSheet.create({
   button: {
-    height: 38,
-    width: 68,
+    height: 40,
+    width: 74,
     backgroundColor: colors.shape,
     borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 16,
+    marginRight: 8,
   },
 
   activeButton: {
