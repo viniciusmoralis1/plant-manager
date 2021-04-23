@@ -9,7 +9,7 @@ import {
   Keyboard,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import {Button} from '../../components/Button';
+import Button from '../../components/Button';
 import styles from './styles';
 
 export function Identification(){
@@ -45,7 +45,7 @@ export function Identification(){
             </Text>
 
             <TextInput
-              style={[styles.nameInput, showFocus && (styles.inputFocus)]}
+              style={[styles.nameInput, showFocus && styles.inputFocus]}
               onBlur={handleBlur}
               onFocus={handleFocus}
               placeholder="Digite um nome"

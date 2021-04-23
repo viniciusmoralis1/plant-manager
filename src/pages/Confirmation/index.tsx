@@ -5,7 +5,7 @@ import {
   View,
   Text
 } from 'react-native';
-import {Button} from '../../components/Button';
+import Button from '../../components/Button';
 import styles from './styles';
 
 export function Confirmation(){
@@ -31,7 +31,7 @@ export function Confirmation(){
         </Text>
 
         <View style={styles.footer}>
-          <Button text="Começar" showDisabled={false} onPress={handleNavigate} />
+          <Button text="Começar" onPress={handleNavigate} />
         </View>
       </View>
     </SafeAreaView>

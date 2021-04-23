@@ -5,12 +5,12 @@ import styles from './styles';
 
 interface ButtonProps extends TouchableOpacityProps {
   text: string;
-  showDisabled: boolean;
+  showDisabled?: boolean;
 }
 
-export function Button({text, showDisabled, ...rest} : ButtonProps) {
+export default function Button({text, showDisabled, ...rest} : ButtonProps) {
   return (
-    <TouchableOpacity style={[styles.button, showDisabled && (styles.disable)]} activeOpacity={0.7} {...rest}>
+    <TouchableOpacity style={[styles.button, showDisabled && styles.disable]} activeOpacity={0.7} {...rest}>
       <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   )

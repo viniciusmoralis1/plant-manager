@@ -18,7 +18,6 @@ export default StyleSheet.create({
     marginTop: 20,
     fontSize: 20,
     fontFamily: fonts.heading,
-
     color: colors.heading
   },
 
@@ -27,5 +26,12 @@ export default StyleSheet.create({
     fontFamily: fonts.text,
     color: colors.heading,
     lineHeight: 24
+  },
+
+  environmentList: {
+    height: 60,
+    alignItems: 'center',
+    marginLeft: 24,
+    marginVertical: 24,
   },
 });
