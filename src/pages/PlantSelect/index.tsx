@@ -97,7 +97,7 @@ export function PlantSelect(){
   }, []);
 
   function navigateToPlantSave(plant: PlantProps){
-    navigation.navigate('PlantSave');
+    navigation.navigate('PlantSave', {plant});
   };
 
   if (loading)

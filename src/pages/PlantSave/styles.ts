@@ -48,7 +48,7 @@ export default StyleSheet.create({
     padding: 16,
     borderRadius: 26,
     position: 'relative',
-    bottom: 92
+    bottom: 88
   },
 
   tipImage: {
@@ -59,7 +59,7 @@ export default StyleSheet.create({
   tipText: {
     flex: 1,
     marginLeft: 16,
-    fontSize: 18,
+    fontSize: 14,
     textAlign: 'justify',
     fontFamily: fonts.text,
     color: colors.blue,
