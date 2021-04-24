@@ -9,6 +9,7 @@ import {
   Keyboard,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Button from '../../components/Button';
 import styles from './styles';
 
@@ -17,7 +18,8 @@ export function Identification(){
   const [name, setName] = useState<string>();
   const navigation = useNavigation();
 
-  function handleSubmit(){
+  async function handleSubmit(){
+    await AsyncStorage.setItem('@plantmanager:user', name || '');
     navigation.navigate('Confirmation');
   }
 
