@@ -12,24 +12,14 @@ import {SvgFromUri} from 'react-native-svg';
 import { useRoute } from '@react-navigation/core';
 import DateTimePicker, {Event} from '@react-native-community/datetimepicker';
 import { isBefore, format } from 'date-fns';
+import { PlantProps } from '../../libs/storage';
 
 import Button from '../../components/Button';
 import styles from './styles';
 import waterdrop from '../../assets/waterdrop.png';
 
 interface Params {
-  plant: {
-    id: number;
-    name: string;
-    about: string;
-    water_tips: string;
-    photo: string;
-    environments: [string];
-    frequency: {
-      times: number;
-      repeat_every: string;
-    }
-  }
+  plant: PlantProps;
 }
 
 export function PlantSave() {
