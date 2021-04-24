@@ -37,7 +37,8 @@ export default StyleSheet.create({
   controller: {
     backgroundColor: colors.white,
     width: '100%',
-    padding: 42
+    padding: 28,
+    marginTop: 24,
   },
 
   tipContainer: {
@@ -48,7 +49,7 @@ export default StyleSheet.create({
     padding: 16,
     borderRadius: 26,
     position: 'relative',
-    bottom: 88
+    bottom: 76
   },
 
   tipImage: {
@@ -70,5 +71,24 @@ export default StyleSheet.create({
     fontFamily: fonts.complement,
     color: colors.heading,
     marginBottom: 8,
-  }
+    textAlign: 'center'
+  },
+
+  showDatePickerButton: {
+    width: '100%',
+    alignItems: 'center',
+    paddingVertical: 16,
+  },
+
+  dateTimePickerText: {
+    fontSize: 16,
+    color: colors.heading,
+    fontFamily: fonts.text
+  },
+
+  dateTimePickerSelectedText: {
+    fontSize: 14,
+    color: colors.body_dark,
+    fontFamily: fonts.complement
+  },
 });
