@@ -7,6 +7,7 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -19,8 +20,12 @@ export function Identification(){
   const navigation = useNavigation();
 
   async function handleSubmit(){
-    await AsyncStorage.setItem('@plantmanager:user', name || '');
-    navigation.navigate('Confirmation');
+    try{
+      await AsyncStorage.setItem('@plantmanager:user', name || '');
+      navigation.navigate('Confirmation');
+    } catch {
+      Alert.alert('Não foi possível salvar seu nome, tente novamente!');
+    }
   }
 
   function handleBlur(){

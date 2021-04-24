@@ -12,11 +12,12 @@ import {SvgFromUri} from 'react-native-svg';
 import { useRoute } from '@react-navigation/core';
 import DateTimePicker, {Event} from '@react-native-community/datetimepicker';
 import { isBefore, format } from 'date-fns';
-import { PlantProps } from '../../libs/storage';
+import { PlantProps, savePlant } from '../../libs/storage';
 
 import Button from '../../components/Button';
 import styles from './styles';
 import waterdrop from '../../assets/waterdrop.png';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface Params {
   plant: PlantProps;
@@ -32,17 +33,25 @@ export function PlantSave() {
   function handleChangeTime(event: Event, dateTime: Date | undefined){
     if(Platform.OS === 'android'){
       setShowDatePicker(!showDatePicker);
-    }
+    };
 
     if(dateTime && isBefore(dateTime, new Date())){
       setSelectedTime(new Date());
       return Alert.alert('Escolha algum horário no futuro! 🕐');
-    }
+    };
 
     if(dateTime){
       setSelectedTime(dateTime);
-    }
+    };
   };
+
+  async function handleSave() {
+    try {
+      await savePlant({...plant, dateTimeNotification: selectedTime});
+    } catch{
+      Alert.alert('Não foi possível salvar sua plantinha, tente novamente! 😥');
+    }
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -75,7 +84,7 @@ export function PlantSave() {
           </TouchableOpacity>
         )}
 
-        <Button text="Cadastrar planta" onPress={() => {}} />
+        <Button text="Cadastrar planta" onPress={handleSave} />
       </View>
     </ScrollView>
   );
