@@ -17,7 +17,6 @@ import { PlantProps, savePlant } from '../../libs/storage';
 import Button from '../../components/Button';
 import styles from './styles';
 import waterdrop from '../../assets/waterdrop.png';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface Params {
   plant: PlantProps;
