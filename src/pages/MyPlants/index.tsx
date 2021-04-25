@@ -7,12 +7,13 @@ import {
 import Header from '../../components/Header';
 import { FlatList } from 'react-native-gesture-handler';
 import { loadPlants, PlantProps } from '../../libs/storage';
-import {formatDistance} from 'date-fns';
-import {pt} from 'date-fns/locale';
+import { formatDistance } from 'date-fns';
+import { pt } from 'date-fns/locale';
 
 import styles from './styles';
 import waterdrop from '../../assets/waterdrop.png';
 import PlantCardSecondary from '../../components/PlantCardSecondary';
+import Load from '../../components/Load';
 
 export function MyPlants() {
   const [myPlants, setMyPlants] = useState<PlantProps[]>([]);
@@ -37,6 +38,9 @@ export function MyPlants() {
     loadStorageData();
   }, []);
 
+  if(loading){
+    return <Load />
+  }
   return (
     <View style={styles.container}>
       <Header />
@@ -50,12 +54,14 @@ export function MyPlants() {
         <Text style={styles.plantsTitle}>
           Próximas regadas
         </Text>
-        
-        <FlatList data={myPlants} keyExtractor={(item) => String(item.id)} renderItem={({item}) => (
-          <PlantCardSecondary data={item} />
-        )} 
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flex: 1}}
+
+        <FlatList
+          data={myPlants} 
+          keyExtractor={(item) => String(item.id)} 
+          renderItem={({item}) => (
+            <PlantCardSecondary data={item} />
+          )}
+          showsVerticalScrollIndicator={false}
         />
       </View>
 

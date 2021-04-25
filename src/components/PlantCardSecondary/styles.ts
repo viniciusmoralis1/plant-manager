@@ -19,7 +19,7 @@ export default StyleSheet.create({
     marginLeft: 10,
     fontSize: 17,
     fontFamily: fonts.heading,
-    color: colors.blue,
+    color: colors.heading,
     marginVertical: 12,
     textAlign: 'center',
   },
