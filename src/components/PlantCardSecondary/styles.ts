@@ -40,5 +40,18 @@ export default StyleSheet.create({
     fontSize: 16,
     fontFamily: fonts.heading,
     color: colors.body_dark,
-  }
+  },
+
+  removeButton: {
+    width: 110,
+    height: 85,
+    backgroundColor: colors.red,
+    marginTop: 12,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+    right: 10,
+    paddingLeft: 10
+  },
 })
