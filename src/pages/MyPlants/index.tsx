@@ -49,7 +49,7 @@ export function MyPlants() {
     async function loadStorageData() {
       const plantsStored = await loadPlants();
 
-      if(plantsStored){
+      if(plantsStored?.length > 0){
         const nextTime = formatDistance(
           new Date(plantsStored[0].dateTimeNotification).getTime(),
           new Date().getTime(),
@@ -57,9 +57,10 @@ export function MyPlants() {
         )
   
         setNextWatering(`Não esqueça de regar a ${plantsStored[0].name} à ${nextTime}.`);
+        setMyPlants(plantsStored);
+      } else {
+        setNextWatering('Para ser lembrado quando deve regar sua plantinha primeiro cadastre ela!');
       }
-      
-      setMyPlants(plantsStored);
       setLoading(false);
     }
 
@@ -83,14 +84,20 @@ export function MyPlants() {
           Próximas regadas
         </Text>
 
-        <FlatList
-          data={myPlants} 
-          keyExtractor={(item) => String(item.id)} 
-          renderItem={({item}) => (
-            <PlantCardSecondary data={item} handleRemove={() => handleRemove(item)} />
-          )}
-          showsVerticalScrollIndicator={false}
-        />
+        { myPlants?.length > 0 ? (
+          <FlatList
+            data={myPlants} 
+            keyExtractor={(item) => String(item.id)} 
+            renderItem={({item}) => (
+              <PlantCardSecondary data={item} handleRemove={() => handleRemove(item)} />
+            )}
+            showsVerticalScrollIndicator={false}
+          />
+        ) : (
+          <Text style={styles.noPlantsText}>
+            Não há plantas cadastradas ainda!
+          </Text>
+        )}
       </View>
 
     </View>

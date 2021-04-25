@@ -45,6 +45,12 @@ export default StyleSheet.create({
     fontFamily: fonts.heading,
     color: colors.heading,
     marginVertical: 6,
-  }
-  
+  },
+
+  noPlantsText: {
+    fontSize: 17,
+    fontFamily: fonts.complement,
+    color: colors.heading,
+    marginTop: 12,
+  },  
 })
